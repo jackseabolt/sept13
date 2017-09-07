@@ -17,7 +17,6 @@ router.get('/', (req, res) => {
   res.json(BlogPosts.get());
 });
 
-
 router.post('/', jsonParser, (req, res) => {
   if(req.body.title && req.body.author && req.body.content && req.body.publishDate) {
     let item = BlogPosts.create(req.body.title, req.body.content, req.body.author, req.body.publishDate);

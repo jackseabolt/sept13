@@ -22,11 +22,17 @@ app.get('/blog-posts', (req, res) => {
   res.json(BlogPosts.get());
 });
 
-/*
-app.post('/blog-posts', (req, res) => {
-  BlogPosts.create();
+
+app.post('/blog-posts', jsonParser, (req, res) => {
+  if(req.body.title && req.body.author && req.body.content && req.body.publishDate) {
+  let item = BlogPosts.create(req.body.title, req.body.content, req.body.author, req.body.publishDate);
+  res.json(item);
+  } else {let message = 'there was an issue with your submission';
+  console.log(message); 
+  res.status(400).send(message);
+  }
 });
-*/
+
 app.put('/blog-posts/:id', jsonParser, (req, res) => {
   console.log(req.body);
   const requiredFields = ['title', 'id'];
@@ -53,12 +59,14 @@ app.put('/blog-posts/:id', jsonParser, (req, res) => {
   });
   res.status(204).end();
 });
-/*
-app.delete('/blog-posts/:id', jsonParser, (req, res) => {
-  BlogPosts.delete();
+
+app.delete('/blog-posts/:id', (req, res) => {
+  BlogPosts.delete(req.params.id);
+  console.log(`Deleted crappy post ${req.params.id}`);
+  res.status(204).end();
 });
 
-*/
+
 
 
 app.listen(process.env.PORT || 8080, () => {

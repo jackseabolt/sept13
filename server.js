@@ -16,17 +16,14 @@ const blogPostRouter = require('./router.js');
 app.use(morgan('common'));
 app.use('/blog-posts', blogPostRouter); // think of this as $('http-connection').on('request', '/blog-posts')... though that is NOT proper code
 
-app.listen(process.env.PORT || 8080, () => {
-  console.log(`Your app is listening on port ${process.env.PORT || 8080}`);
-});
-
 let server;
 
 function runServer() {
+  console.log('top line of run server');
   const port = process.env.PORT || 8080;
   return new Promise((resolve, reject) => {
     server = app.listen(port, () => {
-      console.log(`Your app is listening on port ${port}`);
+      console.log(`Your app be listening on port ${port}`);
       resolve(server);
     }).on('error', err => {
       reject(err)
@@ -54,6 +51,7 @@ function closeServer() {
 // if server.js is called directly (aka, with `node server.js`), this block
 // runs. but we also export the runServer command so other code (for instance, test code) can start the server as needed.
 if (require.main === module) {
+  console.log('should happen when starting normally, not testing');
   runServer().catch(err => console.error(err));
 };
 

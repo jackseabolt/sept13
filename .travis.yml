@@ -1,2 +1,9 @@
 language: node_js
 node_js: node
+deploy:
+  provider: heroku
+  api_key:
+    secure: Ez3G6nhfDQCLD+QUOjV8oLJfPliW7Y40b3oAye2xk4O6cEMsgiOaZ77Vy2wbIwkEn0oiRUeoT3u9YNrK18OzPVYFXVbNucVaPvwMelrNqw3WnqlWKT3VspqnSnxOCe/vZDbmsCe2ZC19+ynMfduiGxqte6/Hg68Z26X9T1kJL1ZkO0HVrne/wc/QXgvmvLfeip2cx/hIx++MT128WOnK2gKaSF0ZDNe9/B1QBvUXISG9Mxsrgdggcl9ihxDtT9Z1TLcDL7T0etsyGvfJ2we2GT3Otwj1iZrzoIvAQyNPiB9PccM8STiD6sdaoNi4LsoG1I51uik/9WzX4tZ2vm5kDwOn1QFXdAW/HVXEDtwa7zLns/nwTJE7GXzHc6/BjW2GB4czG+z94TBCoK59wqTD6CAqg+1gDTciVjCRd5HU89qAar10W+5lf+uwDgjYczG8bv125Ihdas/3I2z3Vdqn5u+hKt3xct/PbJz3V4h2euOuurWRdVWAmQ+Yh+ZPgOnJHh4AZrCtfJaiuKnZrmtmSKy2RrYEy8hp5hpKZuIbXL0ZNviAPXcFmC4gNRtHVr1DvTwGXjZ16L3pCU5B17SPdNkfED4BGRQfNkAuKARqTNJDudtYnZ3uI3vkmETAwUHVck5sVv7Z1wrpn1Tqrf8tslfcOOoYttg559BwT58UOhs=
+  app: polar-beyond-71377
+  on:
+    repo: bradcgarner/NodeModules2

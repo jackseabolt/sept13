@@ -20,7 +20,7 @@ router.get('/', (req, res) => {
 router.post('/', jsonParser, (req, res) => {
   if(req.body.title && req.body.author && req.body.content && req.body.publishDate) {
     let item = BlogPosts.create(req.body.title, req.body.content, req.body.author, req.body.publishDate);
-    res.json(item);
+    res.json(item).status(201);
   } else {let message = 'there was an issue with your submission';
     console.log(message); 
     res.status(400).send(message);

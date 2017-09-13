@@ -3,6 +3,12 @@
 
 const express = require('express');
 const morgan = require('morgan');
+const knex = require('knex')({
+  client: 'pg',
+  connection: {
+      database: 'short_blog'
+  },
+});
 // const router = express.Router(); we don't need this, because it is in the router.js file
 // const bodyParser = require('body-parser'); 
 // const jsonParser = bodyParser.json(); we could do app.use(jsonParser) in this file, and NOT in the router file

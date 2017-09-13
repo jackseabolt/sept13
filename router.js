@@ -4,7 +4,7 @@ const express = require('express');
 const router = express.Router();
 const bodyParser = require('body-parser');
 const jsonParser = bodyParser.json();
-
+const x = "x"; 
 const {BlogPosts} = require('./model'); // we had (__dirname + '/model')
 
 // we had the 2 lines below in server.js
